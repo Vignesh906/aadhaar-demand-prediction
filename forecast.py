@@ -4,7 +4,7 @@ import pandas as pd
 from prophet import Prophet
 
 df = pd.read_csv("Aadhaar_Monthly_Enrolment.csv")
-df['date'] = pd.to_datetime(df['date'])
+df['date'] = pd.to_datetime(df['date'], dayfirst=True, format='mixed')
 
 def forecast_demand(district):
     d = df[df['district'].str.upper() == district.upper()]
